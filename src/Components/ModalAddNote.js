@@ -24,15 +24,15 @@ const useStyles = makeStyles((theme) => ({
     width: "30%",
     outline: "none",
     height: "44%",
-    '@media (min-width:760px)': { 
+    '@media (max-width:760px)': { 
       width: '60%',
       height: '80%'
     },
-    '@media (min-width:425px)': { 
+    '@media (max-width:425px)': { 
       width: '60%',
       height: '80%'
     },
-    '@media (min-width:375px)': { 
+    '@media (max-width:375px)': { 
       width: '60%',
       height: '80%'
     }
@@ -99,13 +99,13 @@ const ModalAddNote = (props) => {
   };
 
   const saveClick = () => {
-    if (isIdValidated()) {
+    // if (isIdValidated()) {
       noteObj.creation_date = Date.now() / 1000;
 
       props.createClick(noteObj);
 
       props.handleClose("add");
-    }
+    // }
   };
 
   const updateClick = () => {
@@ -113,13 +113,13 @@ const ModalAddNote = (props) => {
     props.handleClose("add");
   };
 
-  const isIdValidated = () => {
-    return (
-      props.notes.every((noteObject) => noteObject.id !== noteObj.id) &&
-      noteObj.content !== "" &&
-      noteObj.title !== ""
-    );
-  };
+  // const isIdValidated = () => {
+  //   return (
+  //     props.notes.every((noteObject) => noteObject.id !== noteObj.id) &&
+  //     noteObj.content !== "" &&
+  //     noteObj.title !== ""
+  //   );
+  // };
 
   return (
     <Modal
